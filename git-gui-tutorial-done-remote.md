@@ -8,7 +8,7 @@
 
 
 # 一、Git GUI基本操作
-##1、版本库初始化
+## 1、版本库初始化
 ![](https://raw.githubusercontent.com/FrankFrankWei/git-gui-tutorial-article/master/init.gif)
 
 `gitpractise`文件夹就变成了Git可以管理的仓库，目录下多了一个`.git`文件夹，此目录是Git用于管理版本库的，不要擅自改动里面的文件，这样会破坏Git仓库。(`.git`文件夹默认是隐藏的，如果你没有看到它，不要慌。）
@@ -16,7 +16,7 @@
 > 在想要初始化的文件夹的空白处右键，选择**Git GUI Here**，新建版本库时文件夹会自动定位到当前文件夹。
 
 
-##2、GUI说明
+## 2、GUI说明
 
 ![](https://raw.githubusercontent.com/FrankFrankWei/git-gui-tutorial-article/master/git_gui_areas.png)
 
@@ -31,21 +31,21 @@
 **Commit**：将暂存区的文件提交到版本库。  
 **Push**：推送到远程版本库。  
 
-##3、新增文件
+## 3、新增文件
 让我们从新增一个文件开始，在`gitpractise`中新建`hello.txt`文件，然后点击**Rescan**，可以看到`hello.txt`出现在*工作区*
 
 ![](https://raw.githubusercontent.com/FrankFrankWei/git-gui-tutorial-article/master/add_and_rescan.gif)
 
 > 对提交过的文件的修改是可以撤销的，通过**Commit -> Revert Changes**
 
-##4、暂存
+## 4、暂存
 **Commit -> Stage To Commit**
 
 ![](https://raw.githubusercontent.com/FrankFrankWei/git-gui-tutorial-article/master/stage.gif)
 
 这里的操作是将选定的单个文件放入暂存区（快捷键是ctrl+t)。多个文件可以按住*shift/ctrl*进行选定。暂存全部直接点击**Stage Changed**
 
-###4.1、撤销暂存
+### 4.1、撤销暂存
 提交前还想再编辑。**Commit -> Unstage From Commit**
 
 ![](https://raw.githubusercontent.com/FrankFrankWei/git-gui-tutorial-article/master/unstage.gif)
@@ -53,17 +53,17 @@
 
 > 也可以不撤销暂存，直接编辑，再次暂存。效果是一样的。
 
-##5、提交
+## 5、提交
 ![](https://raw.githubusercontent.com/FrankFrankWei/git-gui-tutorial-article/master/commit.gif)
 
-##6、版本节点和回滚
-###6.1、 查看版本节点
+## 6、版本节点和回滚
+### 6.1、 查看版本节点
 为了演示版本的回滚，我对`hello.txt`做了修改并提交。此时我们有两个版本。
 **Repository -> Visualize master's history**
 
 ![](https://raw.githubusercontent.com/FrankFrankWei/git-gui-tutorial-article/master/version_nodes.gif)
 
-###6.2、回滚，回到第一个版本
+### 6.2、回滚，回到第一个版本
 
 ![](https://raw.githubusercontent.com/FrankFrankWei/git-gui-tutorial-article/master/rollback.gif)
 
@@ -84,7 +84,7 @@ reset有三种模式：**soft | mixed | hard ** ，不同的模式对工作区�
 最后，可以通过合并分支，将不同分支的内容结合到一起。  
 分支让每个人拥有独立的工作空间，而合并能将所有人的工作成果归一，协同工作因此变得简单、高效。
 
-##1、创建一个分支
+## 1、创建一个分支
 **Branch -> Create**
 
 ![](https://raw.githubusercontent.com/FrankFrankWei/git-gui-tutorial-article/master/new_branch.gif)
@@ -97,7 +97,7 @@ reset有三种模式：**soft | mixed | hard ** ，不同的模式对工作区�
 
 > 切换前要保持当前分支的工作区和暂存区是*干净的*(clean)，即没有未提交的修改。如果你修改了一半，这时由于各种原因，需要切换到其他分支工作，可以使用git stash命令，它会记录当前工作区和暂存区中文件的状态，把工作现场“储藏”起来，这样工作区就是干净的了。再次回到此分支，使用git stash pop命令，就能恢复现场。Git GUI不提供相关的操作，需要去Git bash执行这两个命令。
 
-##2、合并分支
+## 2、合并分支
 为了演示，我还以master为原型新建了分支*branch2*  
 （1）、branch1中修改`hello.txt`的第一行为*hi~world.*，并新增文件`world.txt`  
 （2）、branch2中修改`hello.txt`的第一行为*work hard pls.*  
@@ -106,7 +106,7 @@ reset有三种模式：**soft | mixed | hard ** ，不同的模式对工作区�
 
 ![](https://raw.githubusercontent.com/FrankFrankWei/git-gui-tutorial-article/master/branches.png)
 
-###2.1、合并branch1到master
+### 2.1、合并branch1到master
 在合并之前，我们思考一下，由于branch1是在master版本上进行了修改，我们期望的合并结果应该是master中hello.txt第一行被修改为*hi~world.*，并新增文件`world.txt`，接下来就是验证。
 首先切换到主分支master，然后点击菜单栏的 **Merge -> Local Merge**
 
@@ -118,7 +118,7 @@ reset有三种模式：**soft | mixed | hard ** ，不同的模式对工作区�
 
 可以看到此时 master跟branch1指向了同一个版本节点。
 
-###2.2、合并branch2到master
+### 2.2、合并branch2到master
 接下来我们合并branch2到master。
 
 ![](https://raw.githubusercontent.com/FrankFrankWei/git-gui-tutorial-article/master/confilict_merge.gif)
@@ -146,31 +146,31 @@ branch1和branch2完成了它们的使命，可以通过**Branch -> Delete**进�
 
 现在，我们以一个托管在GitHub上的ASP.NET MVC项目来进行远程协作演示。
 
-##1、 克隆远程仓库到本地
+## 1、 克隆远程仓库到本地
 
 ![](https://raw.githubusercontent.com/FrankFrankWei/git-gui-tutorial-article/master/clone.gif)
 
-##2、忽略文件
+## 2、忽略文件
 细心的你会发现根目录下有一个名为`.gitignore`的文件。它用于定义*“忽略规则”*（ignore rules），每一次暂存/提交之前，Git会根据该文件内容忽略指定文件/文件夹。   在实际的开发过程中，总有一些情况是我们不想让Git跟踪某些文件的。Git提供三种忽略文件的方式
 
-###2.1、创建局部`.gitignore`文件
+### 2.1、创建局部`.gitignore`文件
 在仓库的根目录下创建`.gitignore`文件，*“忽略规则”*仅作用于当前仓库。一般情况下，应该将`.gitignore`文件提交到版本库，这样就可以与克隆项目仓库的人共享*“忽略规则”*。
 
 Github上维护有一个适用于多种现流行的操作系统/环境/开发语言的官方推荐`.gitignore`文件的[项目](https://github.com/github/gitignore)。还可以通过[gitignore.io](https://www.gitignore.io/)生成对应操作系统/开发语言/IDE的`.gitignore`文件。
 
-###2.2、创建全局`.gitignore`文件
+### 2.2、创建全局`.gitignore`文件
 我们还可以通过全局`.gitignore`文件将*“忽略规则”*应用到本机上所有Git仓库。  
 （1）、git config --global core.excludesfile ~/.gitignore_global。   
 （2）、在用户根目录下创建`.gitignore`文件。
 
-###2.3、显式排除出仓库
+### 2.3、显式排除出仓库
 如果不想使用`.gitignore`文件，还可以通过往仓库根目录下`.git/info/exclude`文件添加*“忽略规则”*达到忽略本仓库指定文件/文件夹的目的。
 
 > 1、如果一个文件已经添加到版本库，之后添加对应的忽略规则到`gitignore/exclude`文件并不会生效。这种情况下，需要通过以下命令先解除对文件的跟踪：   
 > `git rm --cached FILENAME `  
 >2、全局和局部的`.gitignore`文件会共同作用。
 
-##3、pull和push
+## 3、pull和push
 pull和push分别表示从远程仓库获取信息和推送本地更新到远程仓库两个操作。
 
 多人协作时，大家都会往master分支上推送各自的修改，小伙伴已经向master推送了他的提交，而碰巧我们对同样的文件作了修改，并试图推送：
