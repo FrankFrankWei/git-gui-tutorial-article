@@ -127,13 +127,13 @@ reset有三种模式：**soft | mixed | hard ** ，不同的模式对工作区�
 
 ![](https://raw.githubusercontent.com/FrankFrankWei/git-gui-tutorial-article/master/merge_failed.png)
 
-提示框中有一句：*"Automatic merge failed"*，即自动合并失败。我们与合并branch1的提示做一下对比
+提示框中有一句：*Automatic merge failed*，即自动合并失败。我们与合并branch1的提示做一下对比
 
 ![](https://raw.githubusercontent.com/FrankFrankWei/git-gui-tutorial-article/master/fast_forward_tips.png)
 
-我们看到了*"Fast-forward"*的提示。 由于master 是要并入的branch1分支的直接上游，master顺着走下去可以到达branch1分支，这种单线的历史分支不存在任何需要解决的分歧，合并过程称为快进（Fast forward）。
+我们看到了*Fast-forward*的提示。 由于master 是要并入的branch1分支的直接上游，master顺着走下去可以到达branch1分支，这种单线的历史分支不存在任何需要解决的分歧，合并过程称为快进（Fast forward）。
 
-而合并了branch1之后的master不再是branch2的直接上游，此时合并branch2就会要求解决分歧（如果存在的话）。所以才有了*"Automatic merge failed: fix conflicts and then commit the result"*的提示。（自动合并失败，请解决冲突后再提交）。Git将文件中有冲突的地方都写入文件，同时显示在*差异区*，我们可以按图索骥，到指定文件中删除不想要的部分，然后暂存，再次提交。(这里的暂存是不可以通过点击Stage Changed实现的）   
+而合并了branch1之后的master不再是branch2的直接上游，此时合并branch2就会要求解决分歧（如果存在的话）。所以才有了*Automatic merge failed: fix conflicts and then commit the result*的提示。（自动合并失败，请解决冲突后再提交）。Git将文件中有冲突的地方都写入文件，同时显示在*差异区*，我们可以按图索骥，到指定文件中删除不想要的部分，然后暂存，再次提交。(这里的暂存是不可以通过点击Stage Changed实现的）   
 ![](https://raw.githubusercontent.com/FrankFrankWei/git-gui-tutorial-article/master/fix_conflict_and_merge.gif)
 
 branch1和branch2完成了它们的使命，可以通过**Branch -> Delete**进行删除，需要注意一点：不能删除工作中的分支。
